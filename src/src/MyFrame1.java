@@ -4,20 +4,25 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MyFrame1 extends JFrame implements ActionListener {
-    JButton btt1_1, btt1_2, bt3 ;
+    JButton btt1_1, btt1_2;
     JFrame frame1;
-    JLabel veget_Lab;
-    JPanel redPanel;
+    JLabel veget_Label;
+    JPanel namePanel, bttPanel;
     MyFrame1() {
-        redPanel = new JPanel();
+        namePanel = new JPanel();
 //        redPanel.setBackground(Color.red);
-        redPanel.setBounds(0,0,500,100);
-        redPanel.setLayout(new BorderLayout());
+        namePanel.setBounds(0,0,500,100);//set namePanel size
+        namePanel.setLayout(new BorderLayout());
 
-        veget_Lab = new JLabel();
-        veget_Lab.setText("Vegie for dummy");
-        veget_Lab.setHorizontalAlignment(JLabel.CENTER);
-        veget_Lab.setVerticalAlignment(JLabel.CENTER);
+        bttPanel = new JPanel();
+        bttPanel.setBackground(Color.red);
+        bttPanel.setBounds(0,100,500,400);
+        bttPanel.setLayout(new BorderLayout());
+
+        veget_Label = new JLabel();
+        veget_Label.setText("Vegie for dummy");
+        veget_Label.setHorizontalAlignment(JLabel.CENTER);
+        veget_Label.setVerticalAlignment(JLabel.CENTER);
 
         /*button1*/
         btt1_1 = new JButton();
@@ -25,6 +30,7 @@ public class MyFrame1 extends JFrame implements ActionListener {
         btt1_1.addActionListener(this);
         btt1_1.setText("Button 1 ");
         btt1_1.setFocusable(false);
+//        btt1_1.setHorizontalAlignment(JButton.NORTH);
         /*button1*/
 
         /*button2*/
@@ -41,20 +47,24 @@ public class MyFrame1 extends JFrame implements ActionListener {
         frame1.setSize(500,500);
         frame1.setVisible(true);
 //        frame1.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        frame1.add(redPanel);
-        redPanel.add(veget_Lab);
+        frame1.add(namePanel);
+        frame1.add(bttPanel);
+        namePanel.add(veget_Label);
+//        bttPanel.add(btt1_1);
         frame1.add(btt1_1);
         frame1.add(btt1_2);
-    }
+    }//MyFrame1
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == btt1_1) {
             frame1.dispose();
-            MyFrame2 secframe = new MyFrame2();
+            MyFrame2 secFame = new MyFrame2();
         }
         if(e.getSource() == btt1_2) {
             frame1.dispose();
             MyFrame2 secFrame = new MyFrame2();
-        }
-    }
-}
+        }//if 2
+    }//ActionListener
+}//class
+
+/*shift + Fn + F6 to rename Variable all of file*/
